@@ -24,14 +24,15 @@ public class Start {
             if (primeiraPerg == 2) {
                 System.exit(0);
             }
-            int segundaPerg = JOptionPane.showConfirmDialog(null, "O animal que você pensou vive na água?",
-                    "Informe", JOptionPane.YES_NO_OPTION);
+
+             int segundaPerg = JOptionPane.showConfirmDialog(null, "O animal que você pensou vive na água?",
+                            "Informe", JOptionPane.YES_NO_OPTION);
 
 
             if (segundaPerg == 0) {
                 if (op.getAquaticos().size() == 0) {
                     op.prePercistAquatico();
-                    Integer pergInicialAquaticos = JOptionPane.showConfirmDialog(null, "O peixe que você pensou é " + op.getAquaticos().get(0).getNome() + " ?",
+                    int pergInicialAquaticos = JOptionPane.showConfirmDialog(null, "O peixe que você pensou é " + op.getAquaticos().get(0).getNome() + " ?",
                             "Informe", JOptionPane.YES_NO_OPTION);
                     if (pergInicialAquaticos == 0) {
                         JOptionPane.showMessageDialog(null, "Eu venci!!!", "Message", JOptionPane.INFORMATION_MESSAGE);
@@ -66,12 +67,11 @@ public class Start {
                         int perg = -1;
 
                         while (perg != 0) {
-
-                            if(op.getAquaticos().size() <= 1){
-                            perg = JOptionPane.showConfirmDialog(null, "O animal que você pensou " + op.getAquaticos().get(y).getVerbo() + " ?",
-                                    "Informe", JOptionPane.YES_NO_OPTION);
-                            break;}
-
+                            if(y != op.getAquaticos().size()) {
+                                perg = JOptionPane.showConfirmDialog(null, "O animal que você pensou " + op.getAquaticos().get(y).getVerbo() + " ?",
+                                        "Informe", JOptionPane.YES_NO_OPTION);
+                                break;
+                            }
                         }
 
 
@@ -129,7 +129,7 @@ public class Start {
             } else if (segundaPerg == 1) {
                 if (op.getTerrestres().size() == 0) {
                     op.prePercistTerrestre();
-                    Integer pergInicialTerrestres = JOptionPane.showConfirmDialog(null, "O animal que você pensou é " + op.getTerrestres().get(0).getNome() + " ?",
+                    int pergInicialTerrestres = JOptionPane.showConfirmDialog(null, "O animal que você pensou é " + op.getTerrestres().get(0).getNome() + " ?",
                             "Informe", JOptionPane.YES_NO_OPTION);
                     if (pergInicialTerrestres == 0) {
                         JOptionPane.showMessageDialog(null, "Eu venci!!!", "Message", JOptionPane.INFORMATION_MESSAGE);
@@ -162,9 +162,12 @@ public class Start {
                         int perg = -1;
 
                         while (perg != 0) {
+
+                            if(y != op.getTerrestres().size()) {
                             perg = JOptionPane.showConfirmDialog(null, "O animal que você pensou " + op.getTerrestres().get(y).getVerbo() + " ?",
                                     "Informe", JOptionPane.YES_NO_OPTION);
-                            break;
+                                break;
+                            }
                         }
 
 
