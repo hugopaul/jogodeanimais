@@ -10,30 +10,44 @@ import javax.swing.*;
 public class Start {
 
     public Class<?> start() {
-
+        //Mensagem utilizada ao cancelar a tela de digitar animal e seu verbo
         String msg = "INFORME ALGUM VALOR!";
 
+        // Variáveis para gerar até 100 animais
         int i = 0;
         int max = 100;
+
+        // Acesso aos Arrays dos Objetos
         Operador op = new Operador();
 
-
+        // laço de até 100 vezes de toda a aplicação
         while (i < max) {
+
+            // Pergunta inicial
             int primeiraPerg = JOptionPane.showConfirmDialog(null, "Pense em um animal.",
                     "Jogo dos animais", JOptionPane.OK_CANCEL_OPTION);
+
+            //Sair do programa na pergunta inicial
             if (primeiraPerg == 2) {
                 System.exit(0);
             }
 
-             int segundaPerg = JOptionPane.showConfirmDialog(null, "O animal que você pensou vive na água?",
+            // Segunda pergunta
+            int segundaPerg = JOptionPane.showConfirmDialog(null, "O animal que você pensou vive na água?",
                             "Informe", JOptionPane.YES_NO_OPTION);
 
-
+            //Primeiro ciclo dos animais aquáticos
             if (segundaPerg == 0) {
+
+
                 if (op.getAquaticos().size() == 0) {
+
+                    // Pré percistindo o primeiro do array de aquaticos
                     op.prePercistAquatico();
+
                     int pergInicialAquaticos = JOptionPane.showConfirmDialog(null, "O peixe que você pensou é " + op.getAquaticos().get(0).getNome() + " ?",
                             "Informe", JOptionPane.YES_NO_OPTION);
+
                     if (pergInicialAquaticos == 0) {
                         JOptionPane.showMessageDialog(null, "Eu venci!!!", "Message", JOptionPane.INFORMATION_MESSAGE);
                         i++;
